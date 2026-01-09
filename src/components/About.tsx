@@ -54,7 +54,7 @@ const About = () => {
                     <div className="grid gap-6">
                         {highlights.map((item, index) => (
                             <div key={index} className="bg-gray-50 rounded-2xl p-6 flex items-start gap-5 group">
-                                <div className={`w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 shadow-sm ${item.color} group-hover:scale-110`}>
+                                <div className={`w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 shadow-sm ${item.color} group-hover:bg-black group-hover:text-white group-hover:scale-110`}>
                                     <item.icon size={20} />
                                 </div>
                                 <div>

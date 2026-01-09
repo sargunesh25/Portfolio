@@ -49,7 +49,7 @@ const Skills = () => {
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
                     {services.map((service, index) => (
                         <div key={index} className="space-y-4 group">
-                            <div className={`w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center mb-6 transition-colors ${service.color}`}>
+                            <div className={`w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 transition-colors shadow-sm ${service.color} group-hover:bg-black group-hover:text-white`}>
                                 <service.icon size={24} />
                             </div>
                             <h3 className="text-xl font-bold text-gray-900">{service.title}</h3>

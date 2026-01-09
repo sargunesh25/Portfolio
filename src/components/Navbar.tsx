@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-import { FaLinkedinIn, FaGithub, FaInstagram } from 'react-icons/fa';
+import { FaLinkedinIn, FaGithub, FaInstagram, FaBars, FaTimes } from 'react-icons/fa';
 import { HiDownload } from 'react-icons/hi';
 
 const navLinks = [
@@ -15,6 +15,7 @@ const navLinks = [
 
 const Navbar = () => {
     const [copied, setCopied] = React.useState(false);
+    const [menuOpen, setMenuOpen] = React.useState(false);
 
     const handleCopy = () => {
         navigator.clipboard.writeText("sargunesh2507@gmail.com");
@@ -24,12 +25,12 @@ const Navbar = () => {
 
     return (
         <nav className="absolute top-0 left-0 right-0 z-50 py-8 px-6 md:px-12">
-            <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="max-w-[1400px] mx-auto flex items-center justify-between gap-4">
                 {/* Left: Email Pill */}
                 <div className="flex items-center gap-4">
                     <button
                         onClick={handleCopy}
-                        className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center ${copied ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                        className={`px-5 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 flex items-center ${copied ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                             }`}
                     >
                         {copied ? (
@@ -46,7 +47,7 @@ const Navbar = () => {
                             ))
                         )}
                     </button>
-                    <a href="/resume.pdf" className="group flex items-center bg-white border border-gray-200 px-5 py-2 rounded-full text-sm font-medium text-gray-900 hover:bg-gray-50 transition-all duration-300 ease-in-out hover:pr-6 hover:pl-4 whitespace-nowrap">
+                    <a href="/resume.pdf" className="hidden sm:flex group items-center bg-white border border-gray-200 px-5 py-2 rounded-full text-sm font-medium text-gray-900 hover:bg-gray-50 transition-all duration-300 ease-in-out hover:pr-6 hover:pl-4 whitespace-nowrap">
                         <HiDownload className="w-0 overflow-hidden opacity-0 group-hover:w-4 group-hover:mr-2 group-hover:opacity-100 transition-all duration-300" />
                         <span className="flex items-center">
                             <span className="max-w-0 overflow-hidden opacity-0 group-hover:max-w-[70px] group-hover:opacity-100 transition-all duration-300">Download&nbsp;</span>
@@ -55,9 +56,17 @@ const Navbar = () => {
                     </a>
                 </div>
 
-                {/* Right: Socials / Nav (blended) */}
-                <div className="flex items-center gap-6">
-                    <ul className="flex items-center gap-2">
+                {/* Mobile Toggle */}
+                <button
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    className="md:hidden w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-900 hover:bg-gray-200 transition-colors"
+                >
+                    {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+                </button>
+
+                {/* Desktop Nav */}
+                <div className="hidden md:flex items-center gap-6">
+                    <ul className="flex items-center justify-center gap-2">
                         {navLinks.map((link) => (
                             <li key={link.name}>
                                 <a
@@ -91,6 +100,44 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Mobile Menu Dropdown */}
+            {menuOpen && (
+                <div className="absolute top-full left-6 right-6 mt-2 p-6 bg-white rounded-3xl shadow-xl border border-gray-100 md:hidden flex flex-col items-center space-y-6 animate-in slide-in-from-top-4 fade-in duration-200">
+                    <ul className="flex flex-col items-center gap-4 w-full">
+                        {navLinks.map((link) => (
+                            <li key={link.name} className="w-full text-center">
+                                <a
+                                    href={link.href}
+                                    onClick={() => setMenuOpen(false)}
+                                    className="block w-full py-3 rounded-xl text-lg font-medium text-gray-900 hover:bg-gray-50 transition-all"
+                                >
+                                    {link.name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                    <div className="w-full h-px bg-gray-100" />
+                    <div className="flex items-center justify-center gap-6">
+                        <a
+                            href="https://www.linkedin.com/in/sargunesh2507/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-[#0077b5] hover:text-white transition-all"
+                        >
+                            <FaLinkedinIn size={20} />
+                        </a>
+                        <a
+                            href="https://github.com/sargunesh25"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-black hover:text-white transition-all"
+                        >
+                            <FaGithub size={20} />
+                        </a>
+                    </div>
+                </div>
+            )}
         </nav>
     );
 };

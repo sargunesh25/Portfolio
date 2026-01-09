@@ -8,16 +8,7 @@ import Typewriter from 'typewriter-effect';
 const Hero = () => {
     const [isExpanded, setIsExpanded] = React.useState(false);
 
-    React.useEffect(() => {
-        // Trigger expansion on load
-        const timer = setTimeout(() => setIsExpanded(true), 500); // Slight delay for effect
-        const closeTimer = setTimeout(() => setIsExpanded(false), 2500); // Close after 2s (2.5s total)
 
-        return () => {
-            clearTimeout(timer);
-            clearTimeout(closeTimer);
-        };
-    }, []);
 
     return (
         <section id="home" className="bg-white rounded-[2.5rem] pt-24 pb-12 px-6 md:px-12 min-h-screen flex flex-col justify-center relative overflow-hidden">
@@ -63,7 +54,10 @@ const Hero = () => {
 
             {/* CTA Button with Embedded Socials */}
             <div className="flex justify-center mb-0">
-                <div className="group bg-black rounded-full p-1.5 pl-6 pr-2 flex items-center transition-all duration-300 hover:pr-2">
+                <div
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="group bg-black rounded-full p-1.5 pl-6 pr-2 flex items-center transition-all duration-300 hover:pr-2 cursor-pointer"
+                >
                     <span className="text-white font-medium mr-2">Connect</span>
 
                     {/* Social Icons - Reveal on Hover or on Load */}
