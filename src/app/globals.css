@@ -1,42 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --background: #ffffff;
+  --primary: #171717;
+  /* Black for primary actions */
+  --primary-foreground: #FFFFFF;
+  --secondary: #64748b;
+  --background: #F3F4F6;
+  /* Light grey background */
+  --surface: #FFFFFF;
+  /* White surface for cards/sections */
   --foreground: #171717;
+
+  --radius-xl: 2.5rem;
+  /* Large radius for sections */
+  --radius-lg: 1.5rem;
+  --radius-md: 0.75rem;
+  --radius-sm: 0.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  /* Gap between main sections */
+  padding: 1.5rem;
+  /* Outer padding */
+  max-width: 1300px;
+  /* Constrain width */
+  margin-inline: auto;
+  /* Center the body */
+  width: 100%;
+  /* Ensure it takes available space up to max-width */
+  position: relative;
+  /* Ensure absolute children are relative to this container */
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+/* Reset for standard page layout */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: 1px solid var(--primary);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid #E5E7EB;
+}
+
+.btn-outline:hover {
+  background-color: #F9FAFB;
+  border-color: #D1D5DB;
+}
+
+.btn-white {
+  background-color: white;
+  color: var(--primary);
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-white:hover {
+  background-color: #F9FAFB;
+}
+
+/* Section Cards styles */
+.section-card {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  padding: 4rem 1.5rem;
+  width: 100%;
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-700 to-gray-500;
   }
+}
+
+/* Wind/Water Text Animation */
+@keyframes wind {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) skewY(10deg);
+    filter: blur(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) skewY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-wind {
+  opacity: 0;
+  /* meaningful start state */
+  animation: wind 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Swing/Rotate Animation */
+@keyframes swing {
+  0% {
+    transform: rotate(10deg);
+  }
+
+  50% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(10deg);
+  }
+}
+
+.animate-swing {
+  animation: swing 3s ease-in-out infinite;
+  transform-origin: center;
 }
