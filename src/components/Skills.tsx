@@ -32,7 +32,7 @@ const Skills = () => {
             <div className="max-w-[1400px] mx-auto">
                 <div className="text-left mb-20 max-w-3xl">
                     <h2 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
-                        Ready to collaborate with brands to create impact results.
+                        Ready to collaborate with brands to create impactful results.
                     </h2>
                     {/* Optional: Divider or subtitle */}
                     <div className="mt-8 flex justify-start">
