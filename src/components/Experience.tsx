@@ -18,8 +18,8 @@ const experiences = [
 const Experience = () => {
     return (
         <section id="experience" className="bg-white rounded-none md:rounded-[2.5rem] py-24 px-6 md:px-12">
-            <div className="max-w-4xl mx-auto">
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-12 text-center md:text-left">
+            <div className="max-w-[1400px] mx-auto">
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-12 text-left">
                     Where I've Worked
                 </h2>
 
