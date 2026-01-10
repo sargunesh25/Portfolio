@@ -15,7 +15,7 @@ const config: Config = {
                 foreground: 'var(--foreground)',
             },
             fontFamily: {
-                sans: ['var(--font-inter)'],
+                sans: ['var(--font-poppins)'],
             }
         },
     },

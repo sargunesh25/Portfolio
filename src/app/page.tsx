@@ -1,6 +1,9 @@
+'use client';
+
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
+import Experience from '@/components/Experience';
 import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 
@@ -12,13 +15,12 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <Experience />
       <Skills />
       <Projects />
 
-
       {/* Contact / Footer Section */}
-      {/* Contact / Footer Section */}
-      <section id="contact" className="bg-white rounded-[2.5rem] py-16 px-6 md:px-12">
+      <section id="contact" className="bg-white rounded-none md:rounded-[2.5rem] py-16 px-6 md:px-12">
         <div className="max-w-md mx-auto space-y-6">
           <div className="text-center space-y-3">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">

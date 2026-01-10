@@ -11,7 +11,7 @@ const Hero = () => {
 
 
     return (
-        <section id="home" className="bg-white rounded-[2.5rem] pt-24 pb-12 px-6 md:px-12 min-h-screen flex flex-col justify-center relative overflow-hidden">
+        <section id="home" className="bg-white rounded-none md:rounded-[2.5rem] pt-24 pb-12 px-6 md:px-12 min-h-screen flex flex-col justify-center relative overflow-hidden">
 
             {/* Profile Image & Bubble */}
             <div className="flex justify-center mb-6 relative">
@@ -74,9 +74,9 @@ const Hero = () => {
                         <div className="w-px h-4 bg-gray-700 mx-1"></div>
                     </div>
 
-                    <a href="#contact" className="bg-white rounded-full p-2.5 text-black hover:scale-105 transition-transform">
+                    <div className="bg-white rounded-full p-2.5 text-black hover:scale-105 transition-transform">
                         <BsArrowRight size={16} />
-                    </a>
+                    </div>
                 </div>
             </div>
 

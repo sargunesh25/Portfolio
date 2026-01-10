@@ -32,7 +32,7 @@ const services = [
 
 const Skills = () => {
     return (
-        <section id="services" className="bg-white rounded-[2.5rem] py-24 px-6 md:px-12">
+        <section id="services" className="bg-white rounded-none md:rounded-[2.5rem] py-24 px-6 md:px-12">
             <div className="max-w-[1400px] mx-auto">
                 <div className="text-center mb-20 max-w-3xl mx-auto">
                     <h2 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">

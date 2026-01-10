@@ -36,7 +36,7 @@ const projects = [
 
 const Projects = () => {
     return (
-        <section id="projects" className="bg-white rounded-[2.5rem] py-24 px-6 md:px-12">
+        <section id="projects" className="bg-white rounded-none md:rounded-[2.5rem] py-24 px-6 md:px-12">
             <div className="max-w-[1400px] mx-auto">
                 <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
                     <div>

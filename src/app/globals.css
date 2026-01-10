@@ -27,14 +27,14 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-poppins), sans-serif;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  /* Gap between main sections */
-  padding: 1.5rem;
-  /* Outer padding */
+  /* Remove default padding/gap for mobile full-width */
+  padding: 0;
+  gap: 0;
+
   max-width: 1300px;
   /* Constrain width */
   margin-inline: auto;
@@ -43,6 +43,13 @@ body {
   /* Ensure it takes available space up to max-width */
   position: relative;
   /* Ensure absolute children are relative to this container */
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
 }
 
 /* Reset for standard page layout */
