@@ -31,18 +31,48 @@ export default function Home() {
             </p>
           </div>
 
-          <form className="space-y-3">
+          <form
+            action="https://formsubmit.co/sargunesh2507@gmail.com"
+            method="POST"
+            className="space-y-3"
+          >
+            {/* FormSubmit Configuration */}
+            <input type="hidden" name="_subject" value="New Portfolio Inquiry" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+
             <div className="space-y-1.5">
               <label htmlFor="name" className="text-sm font-medium text-gray-700 ml-1">Name</label>
-              <input type="text" id="name" placeholder="Your Name" className="w-full bg-gray-50 border border-gray-200 rounded-2xl px-5 py-3 outline-none focus:border-black focus:ring-1 focus:ring-black transition-all" />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Your Name"
+                className="w-full bg-gray-50 border border-gray-200 rounded-2xl px-5 py-3 outline-none focus:border-black focus:ring-1 focus:ring-black transition-all"
+              />
             </div>
             <div className="space-y-1.5">
               <label htmlFor="email" className="text-sm font-medium text-gray-700 ml-1">Email</label>
-              <input type="email" id="email" placeholder="Your Email" className="w-full bg-gray-50 border border-gray-200 rounded-2xl px-5 py-3 outline-none focus:border-black focus:ring-1 focus:ring-black transition-all" />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="Your Email"
+                className="w-full bg-gray-50 border border-gray-200 rounded-2xl px-5 py-3 outline-none focus:border-black focus:ring-1 focus:ring-black transition-all"
+              />
             </div>
             <div className="space-y-1.5">
               <label htmlFor="message" className="text-sm font-medium text-gray-700 ml-1">Message</label>
-              <textarea id="message" rows={4} placeholder="Tell me about your project" className="w-full bg-gray-50 border border-gray-200 rounded-2xl px-5 py-3 outline-none focus:border-black focus:ring-1 focus:ring-black transition-all resize-none"></textarea>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows={4}
+                placeholder="Tell me about your project"
+                className="w-full bg-gray-50 border border-gray-200 rounded-2xl px-5 py-3 outline-none focus:border-black focus:ring-1 focus:ring-black transition-all resize-none"
+              ></textarea>
             </div>
             <button type="submit" className="w-full bg-black text-white font-bold text-base py-3.5 rounded-full hover:bg-gray-800 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">
               Send Message

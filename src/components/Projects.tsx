@@ -8,29 +8,29 @@ const projects = [
         title: 'Blog Platform',
         category: 'Full Stack',
         desc: 'A robust blogging solution with secure authentication and content management.',
-        link: '#',
+        link: 'https://github.com/sargunesh25/Blog-Platform.git',
         image: '/projects/blog.png'
     },
     {
         title: 'E-Commerce Store',
         category: 'Web Application',
         desc: 'Complete online shopping experience with cart and payment features.',
-        link: '#',
+        link: 'https://github.com/sargunesh25/Amazon-Clone-Webpage.git',
         image: '/projects/ecommerce.png'
     },
     {
         title: 'CardSmart System',
         category: 'Blockchain',
         desc: 'Decentralized smart card system ensuring secure and transparent transactions.',
-        link: '#',
+        link: 'https://github.com/MukeshR-prog/block-dag-2025.git',
         image: '/projects/cardsmart.png'
     },
     {
-        title: 'Weather App',
-        category: 'Integration',
-        desc: 'Real-time forecast application using external data sources.',
-        link: '#',
-        image: '/projects/weather.png'
+        title: 'Crime Hotspot Mapping',
+        category: 'ML Integration',
+        desc: 'Crime Hotsport mapping and analysis with machine learning integration.',
+        link: 'https://github.com/jayanthan-dev/CRIME-CONNECT-ANALYSIS-WITH-ML-INTEGRATION.git',
+        image: '/projects/crime_mapping.png'
     }
 ];
 
@@ -54,7 +54,13 @@ const Projects = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {projects.map((project, index) => (
-                        <div key={index} className="group bg-gray-50 rounded-[2rem] p-6 hover:bg-black transition-colors duration-300 cursor-pointer flex flex-col h-full">
+                        <a 
+                            key={index} 
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group bg-gray-50 rounded-[2rem] p-6 hover:bg-black transition-colors duration-300 cursor-pointer flex flex-col h-full block"
+                        >
                             <div className="flex justify-between items-start mb-6">
                                 <span className="px-3 py-1 rounded-full border border-gray-200 text-[10px] font-bold uppercase tracking-wider text-gray-500 bg-white group-hover:bg-gray-800 group-hover:border-gray-700 group-hover:text-gray-300 transition-colors">
                                     {project.category}
@@ -81,7 +87,7 @@ const Projects = () => {
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                        </div>
+                        </a>
                     ))}
                 </div>
 
